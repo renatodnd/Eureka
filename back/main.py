@@ -18,8 +18,7 @@ def add_researchers():
             }
 
         # Obter uma string formatada em JSON
-        researcher_JSON = json.dumps(researcher)
-        return researcher_JSON
+        return json.dumps(researcher)
     except e:
         return "Error: {e}"
 
@@ -34,8 +33,7 @@ def cadastro_empresas():
             }
 
         # Obter uma string formatada em JSON
-        empresa_JSON = json.dumps(empresa)
-        return empresa_JSON
+        return json.dumps(empresa)
     except e:
         return "Error: {e}"
 
@@ -50,8 +48,7 @@ def cadastro_problems():
             }
 
         # Obter uma string formatada em JSON
-        problems_JSON = json.dumps(problems)
-        return problems_JSON
+        return json.dumps(problems)
     except e:
         return "Error: {e}"
 
@@ -66,16 +63,23 @@ def cadastro_vagas():
             }
 
         # Obter uma string formatada em JSON
-        vaga_JSON = json.dumps(vaga)
-        return vaga_JSON
+        return json.dumps(vaga)
     except e:
         return "Error: {e}"
 
-@app.route("/")
-def home():
-    return "Hello, World!"
+@app.post("/login")
+def login():
+    try:
+        if request.method == 'POST':
+            login = {
+                "name": request.form['name'],
+                "password": request.form['password']
+            }
 
-    
+            return json.dumps(login)     
+    except e:
+        return "Error: {e}"
+  
 if __name__ == "__main__":
     # conn = psycopg2.connect(database="Eureka",
     #                     host="localhost",
