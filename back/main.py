@@ -5,11 +5,11 @@ import uuid
 
 app = Flask(__name__)
 
-@app.post("/cadastro/pesquisadores")
-def cadastro_pesquisadores():
+@app.post("/cadastro/researchers")
+def add_researchers():
     try:
         if request.method == 'POST':
-            pesquisador = {
+            researcher = {
                 "name": request.form['name'],
                 "age": request.form['age'],
                 "id": str(uuid.uuid1()),
@@ -18,8 +18,8 @@ def cadastro_pesquisadores():
             }
 
         # Obter uma string formatada em JSON
-        pesquisador_JSON = json.dumps(pesquisador)
-        return pesquisador_JSON
+        researcher_JSON = json.dumps(researcher)
+        return researcher_JSON
     except e:
         return "Error: {e}"
 
@@ -39,19 +39,19 @@ def cadastro_empresas():
     except e:
         return "Error: {e}"
 
-@app.post("/cadastro/projetos")
-def cadastro_projetos():
+@app.post("/cadastro/problems")
+def cadastro_problems():
     try:
         if request.method == 'POST':
-            projeto = {
+            problems = {
                 "name": request.form['name'],
                 "id": str(uuid.uuid1()),
                 "area": request.form['area']
             }
 
         # Obter uma string formatada em JSON
-        projeto_JSON = json.dumps(projeto)
-        return projeto_JSON
+        problems_JSON = json.dumps(problems)
+        return problems_JSON
     except e:
         return "Error: {e}"
 
@@ -77,10 +77,10 @@ def home():
 
     
 if __name__ == "__main__":
-    # conn = psycopg2.connect(database="db_name",
-    #                     host="db_host",
-    #                     user="db_user",
-    #                     password="db_pass",
+    # conn = psycopg2.connect(database="Eureka",
+    #                     host="localhost",
+    #                     user="root",
+    #                     password="1234",
     #                     port="db_port")
 
     app.run(debug=True)
