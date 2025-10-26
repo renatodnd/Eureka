@@ -37,7 +37,7 @@ def cadastro_problems():
     try:
         data = request.get_json()
 
-        if not data or not data.get('name'):
+        if not data or not data.get('title'):
             return jsonify({
                 "status": "error",
                 "message": "Dados incompletos"
