@@ -1,6 +1,6 @@
 import uuid
 from flask import Blueprint, request, jsonify
-#from models.researcher import create_researcher # Importa a função do modelo
+from models.problems import create_problem # Importa a função do modelo
 
 # Cria um Blueprint (um mini-aplicativo)
 bp = Blueprint('problemns', __name__, url_prefix='/cadastro/problemns')
@@ -37,15 +37,22 @@ def cadastro_problems():
     try:
         data = request.get_json()
 
-        problems = {
-            "id": str(uuid.uuid1()),
-            "name": data.get('name'),
-            "area": data.get('area')
-        }
+        if not data or not data.get('name'):
+            return jsonify({
+                "status": "error",
+                "message": "Dados incompletos"
+            }), 400
+        
+        problem = create_problem(data)
+        # problems = {
+        #     "id": str(uuid.uuid1()),
+        #     "name": data.get('name'),
+        #     "area": data.get('area')
+        # }
 
         return jsonify({
             "status": "sucess",
-            "problems": problems}), 201
+            "problems": data}), 201
     except Exception as e:
         return jsonify({
             "status": "error",

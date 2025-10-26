@@ -91,3 +91,44 @@ def create_researcher(data):
         
     finally:
         cursor.close()
+
+def get_researcher_by_id(researcher_id):
+    """
+    Busca um pequisador pelo ID.
+    
+    Args:
+        researcher_id (str): UUID do pesquisador
+        
+    Returns:
+        dict: Dados do pesquisador ou None se não encontrado
+    """
+    conn = get_db()
+    cursor = conn.cursor()
+    
+    sql = """
+    SELECT id, name, title, institution, location, expertise,
+           email
+    FROM researcher 
+    WHERE id = %s
+    """
+    
+    try:
+        cursor.execute(sql, (researcher_id,))
+        result = cursor.fetchone()
+        
+        if result:
+            return {
+                "id": result[0],
+                "name": result[1],
+                "title": result[2],
+                "institution": result[3],
+                "location": result[4],
+                "expertise": result[5], # O psycopg2 converte o array TEXT[] de volta para lista Python
+                "email": result[6]
+            }
+        return None
+        
+    except psycopg2.Error as e:
+        raise Exception(f"Erro ao buscar pesquisador: {str(e)}")
+    finally:
+        cursor.close()
