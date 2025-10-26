@@ -3,13 +3,15 @@ from routes.empresas import bp as empresa_bp
 from routes.login import bp as login_bp
 from routes.problems import bp as problemns_bp
 from routes.researcher import bp as researcher_bp
+from config import Config
+from database import db
    
-def create_app():
+def create_app(config_class=Config):
     app = Flask(__name__)
-    # app.config.from_object(config_class)
+    app.config.from_object(config_class)
 
     # Inicializa o módulo de conexão com o banco de dados
-    # db.init_app(app)
+    db.init_app(app)
 
     # Registro das Blueprints (Rotas)
     app.register_blueprint(researcher_bp)

@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS Eureka;
 USE Eureka;
 
 CREATE TABLE IF NOT EXISTS Researcher (
-    id SERIAL PRIMARY KEY,
+    id UUID PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     title VARCHAR(150) NOT NULL,
     institution VARCHAR(200) NOT NULL,
@@ -23,13 +23,13 @@ CREATE TABLE IF NOT EXISTS Researcher (
 );
 
 CREATE TABLE IF NOT EXISTS Company (
-    id SERIAL PRIMARY KEY,
+    id UUID PRIMARY KEY,
     name VARCHAR(100),
     location VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS Problems (
-    id SERIAL PRIMARY KEY,
+    id UUID PRIMARY KEY,
     title VARCHAR(500) NOT NULL,
     id_company INTEGER NOT NULL,
     company_logo VARCHAR(500),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Problems (
 );
 
 CREATE TABLE research_projects (
-    id SERIAL PRIMARY KEY,
+    id UUID PRIMARY KEY,
     id_research INTEGER NOT NULL,
     timestamp VARCHAR(100),
     content TEXT,
