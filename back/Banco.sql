@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS Company (
 CREATE TABLE IF NOT EXISTS Problems (
     id UUID PRIMARY KEY,
     title VARCHAR(500) NOT NULL,
-    id_company INTEGER NOT NULL,
+    id_company UUID NOT NULL,
     company_logo VARCHAR(500),
     category TEXT[], -- Array de strings para categorias
     partnership_model TEXT[], -- Array de strings para modelos de parceria
@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS Problems (
 
 CREATE TABLE research_projects (
     id UUID PRIMARY KEY,
-    id_research INTEGER NOT NULL,
+    id_research UUID NOT NULL,
     timestamp VARCHAR(100),
     content TEXT,
-    problem VARCHAR(500) NOT NULL,
+    id_problem UUID NOT NULL,
     company VARCHAR(255) NOT NULL,
     technologies TEXT[], -- Array de strings para as tecnologias
     category VARCHAR(100) NOT NULL,
@@ -64,5 +64,7 @@ CREATE TABLE research_projects (
     image VARCHAR(500),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_id_researcher
-        FOREIGN KEY (id_research) REFERENCES Researcher (id)
+        FOREIGN KEY (id_research) REFERENCES Researcher (id),
+    CONSTRAINT fk_id_problem
+        FOREIGN KEY (id_problem) REFERENCES Problemns (id)
 );
