@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS Researcher (
     title VARCHAR(100),
     institution VARCHAR(100),
     location VARCHAR(100),
-    expertise: string[]
+    -- expertise: string[]
     achievements VARCHAR(100),
     image VARCHAR(100),
     email VARCHAR(100),
@@ -17,26 +17,24 @@ CREATE TABLE IF NOT EXISTS Researcher (
     successRate INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS Empresa (
+CREATE TABLE IF NOT EXISTS Company (
     id SERIAL PRIMARY KEY,
-    
+    name VARCHAR(100),
+    location VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS Problems (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100),
-    company VARCHAR(100),
+    id_company VARCHAR(100),
     companyLogo VARCHAR(100),
-    category: ["Tecnologia Novel", "Melhoria de Processo"],
-    partnershipModel: ["Pesquisa Patrocinada", "Co-desenvolvimento"],
+    -- category: ["Tecnologia Novel", "Melhoria de Processo"],
+    -- partnershipModel: ["Pesquisa Patrocinada", "Co-desenvolvimento"],
     budget VARCHAR(100),
     deadline TIMESTAMP,
     description TEXT,
-    status VARCHAR
-    
-);
-
-CREATE TABLE IF NOT EXISTS Vaga (
-    id SERIAL PRIMARY KEY,
-    
+    status VARCHAR,
+    CONSTRAINT fk_id_company
+        FOREIGN KEY (id_company)
+        REFERENCES Company (id)
 );
