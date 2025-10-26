@@ -27,6 +27,7 @@ import {
   ChevronDown,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Problem {
   id: string
@@ -101,37 +102,45 @@ export function ProblemDetailPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8">
-              <div className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-3">
                 <Image
                   src="/eureca-logo.jpeg"
                   alt="Eureka Logo"
-                  width={240}
-                  height={240}
-                  className="h-28 w-auto"
+                  width={96}
+                  height={96}
+                  className="h-24 w-auto object-contain"
                   style={{
                     mixBlendMode: "multiply",
                     filter: "contrast(1.1) brightness(1.05)",
                   }}
                   priority
                 />
-              </div>
+              </Link>
 
               <nav className="hidden md:flex items-center gap-6">
-                <a href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/problems"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
                   Problemas
-                </a>
-                <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                </Link>
+                <Link
+                  href="/solutions"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
                   Soluções
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/researchers"
                   className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                 >
                   Pesquisadores
-                </a>
+                </Link>
               </nav>
             </div>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Publicar Problema</Button>
+            <Link href="/register">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Publicar Problema</Button>
+            </Link>
           </div>
         </div>
       </header>

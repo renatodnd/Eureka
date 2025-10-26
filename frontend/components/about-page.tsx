@@ -40,9 +40,9 @@ export function AboutPage() {
               <Image
                 src="/eureca-logo.jpeg"
                 alt="Eureka Logo"
-                width={80}
-                height={80}
-                className="h-20 w-20 object-contain"
+                width={96}
+                height={96}
+                className="h-24 w-auto object-contain"
                 style={{ mixBlendMode: "multiply", filter: "contrast(1.1) brightness(1.05)" }}
               />
             </Link>
@@ -73,7 +73,7 @@ export function AboutPage() {
         </div>
       </header>
 
-      <div className="pt-[88px]">
+      <div className="pt-[104px]">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary py-24 md:py-32">
           <div className="container mx-auto px-4">
@@ -101,7 +101,7 @@ export function AboutPage() {
                   variant="outline"
                   className="text-lg bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
                 >
-                  <Link href="/researchers">Ver Pesquisadores</Link>
+                  <Link href="/register">Cadastrar como Pesquisador</Link>
                 </Button>
               </div>
             </div>
@@ -277,7 +277,7 @@ export function AboutPage() {
                   </li>
                 </ul>
                 <Button asChild className="mt-8" size="lg" variant="secondary">
-                  <Link href="/researchers">
+                  <Link href="/register">
                     Cadastrar como Pesquisador <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -328,7 +328,7 @@ export function AboutPage() {
                 variant="outline"
                 className="text-lg bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20"
               >
-                <Link href="/researchers">Cadastrar como Pesquisador</Link>
+                <Link href="/register">Cadastrar como Pesquisador</Link>
               </Button>
             </div>
           </div>

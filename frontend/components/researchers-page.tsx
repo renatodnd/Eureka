@@ -160,9 +160,9 @@ export function ResearchersPage() {
                 <Image
                   src="/eureca-logo.jpeg"
                   alt="Eureka Logo"
-                  width={240}
-                  height={240}
-                  className="h-28 w-auto"
+                  width={96}
+                  height={96}
+                  className="h-24 w-auto object-contain"
                   style={{
                     mixBlendMode: "multiply",
                     filter: "contrast(1.1) brightness(1.05)",
@@ -172,12 +172,18 @@ export function ResearchersPage() {
               </Link>
 
               <nav className="hidden md:flex items-center gap-6">
-                <Link href="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/problems"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
                   Problemas
                 </Link>
-                <a href="#" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <Link
+                  href="/solutions"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
                   Soluções
-                </a>
+                </Link>
                 <Link
                   href="/researchers"
                   className="text-sm font-medium text-primary border-b-2 border-primary transition-colors"
@@ -186,13 +192,15 @@ export function ResearchersPage() {
                 </Link>
               </nav>
             </div>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Tornar-se Pesquisador</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
+              <Link href="/register">Tornar-se Pesquisador</Link>
+            </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground pt-[120px]">
+      <div className="bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground pt-[104px]">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
@@ -376,9 +384,11 @@ export function ResearchersPage() {
             <p className="text-xl text-primary-foreground/90 mb-8">
               Junte-se à nossa rede de especialistas e conecte-se com empresas que precisam das suas soluções
             </p>
-            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2">
-              Cadastre-se Gratuitamente
-              <ExternalLink className="h-5 w-5" />
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2" asChild>
+              <Link href="/register">
+                Cadastre-se Gratuitamente
+                <ExternalLink className="h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>

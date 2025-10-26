@@ -158,9 +158,9 @@ export function ProblemsMarketplacePage() {
               <Image
                 src="/eureca-logo.jpeg"
                 alt="Eureka Logo"
-                width={80}
-                height={80}
-                className="h-20 w-auto"
+                width={96}
+                height={96}
+                className="h-24 w-auto object-contain"
                 style={{ mixBlendMode: "multiply", filter: "contrast(1.1) brightness(1.05)" }}
               />
             </Link>
@@ -180,13 +180,15 @@ export function ProblemsMarketplacePage() {
             </nav>
             <div className="flex items-center gap-3">
               <Button variant="outline">Entrar</Button>
-              <Button>Cadastrar</Button>
+              <Button asChild>
+                <Link href="/register">Cadastrar</Link>
+              </Button>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="pt-[88px]">
+      <div className="pt-[104px]">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 py-12">
           <div className="container mx-auto px-4">

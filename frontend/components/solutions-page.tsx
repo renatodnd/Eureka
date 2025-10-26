@@ -217,7 +217,6 @@ export function SolutionsPage() {
 
   return (
     <div className="min-h-screen bg-muted/30">
-      {/* Header */}
       <header
         className={`border-b bg-white fixed top-0 left-0 right-0 z-50 shadow-sm transition-transform duration-300 ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}
       >
@@ -227,9 +226,9 @@ export function SolutionsPage() {
               <Image
                 src="/eureca-logo.jpeg"
                 alt="Eureka Logo"
-                width={80}
-                height={80}
-                className="h-20 w-auto"
+                width={96}
+                height={96}
+                className="h-24 w-auto object-contain"
                 style={{ mixBlendMode: "multiply", filter: "contrast(1.1) brightness(1.05)" }}
               />
             </Link>
@@ -249,14 +248,16 @@ export function SolutionsPage() {
             </nav>
             <div className="flex items-center gap-3">
               <Button variant="outline">Entrar</Button>
-              <Button>Cadastrar</Button>
+              <Button asChild>
+                <Link href="/register">Cadastrar</Link>
+              </Button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <div className="pt-[88px]">
+      <div className="pt-[104px]">
+        {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 py-12 border-b">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
@@ -467,7 +468,7 @@ export function SolutionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary">
-                <Link href="/researchers">Cadastrar como Pesquisador</Link>
+                <Link href="/register">Cadastrar como Pesquisador</Link>
               </Button>
               <Button
                 asChild
